@@ -3,17 +3,106 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
+    android:background="@drawable/bg_gradient"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/tv_heading"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="64dp"
+        android:text="@string/quotes"
+        android:textSize="24sp"
+        android:fontFamily="sans-serif-medium"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/ll_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="24dp"
+        android:layout_marginTop="64dp"
+        android:background="@drawable/quote_card"
+        android:orientation="vertical"
+        android:padding="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_heading"
+        app:layout_constraintBottom_toTopOf="@id/ll_nav"
+        >
+
+        <ImageView
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:scaleX="-1"
+            android:scaleY="-1"
+            app:tint="#454545"
+            android:src="@drawable/ic_quote"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:fontFamily="sans-serif-medium"
+            android:textColor="@color/black"
+            tools:text="quote......................"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:fontFamily="sans-serif"
+            android:layout_marginTop="24dp"
+            android:textColor="@color/black"
+            tools:text="Author........."/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_nav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="sans-serif-light"
+            android:textColor="@color/white"
+            android:text="@string/previous"
+            android:drawableStart="@drawable/ic_left_arrow" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="end"
+            android:textAlignment="textEnd"
+            android:fontFamily="sans-serif-light"
+            android:textColor="@color/white"
+            android:drawableEnd="@drawable/ic_right_arrow"
+            android:text="@string/next"/>
+    </LinearLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/ll_card"
+        app:layout_constraintBottom_toBottomOf="@id/ll_card"
+        app:layout_constraintEnd_toEndOf="@id/ll_card"
+        android:clickable="true"
+        android:focusable="true"
+        android:backgroundTint="@color/material_dynamic_primary80"
+        android:src="@drawable/ic_share"
+        android:layout_marginEnd="20dp"/>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
